@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+}
+
+group = 'com.example.towa'
+version = mod_version
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+minecraft {
+    mappings channel: 'official', version: '1.20.1'
+    runs {
+        client { workingDirectory project.file('run'); property 'forge.logging.console.level', 'debug'
+            mods { "towa" { source sourceSets.main } } }
+    }
+}
+
+repositories {
+    maven { url = 'https://api.modrinth.com/maven'; content { includeGroup 'maven.modrinth' } }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.3.0'
+    implementation fg.deobf("maven.modrinth:aaa-particles:${aaaVersion}")
+}
+
+jar { archiveBaseName = 'towa' }
+
+// Convert the jar to the names Minecraft uses at runtime. Without this the jar crashes in game.
+jar.finalizedBy('reobfJar')

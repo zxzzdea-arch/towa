@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="towa"
+version="1.0.0"
+displayName="Towa"
+description='''Effekseer effects played through AAA Particles.'''
+
+[[dependencies.towa]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.towa]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+# Required: AAA Particles draws the effects. Check the exact mod id in its mods.toml.
+[[dependencies.towa]]
+modId="aaa_particles"
+mandatory=true
+versionRange="[2.0.0,)"
+ordering="AFTER"
+side="BOTH"
